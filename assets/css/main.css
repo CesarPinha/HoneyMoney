@@ -4330,3 +4330,17 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #000;
+  color: #fff;
+}
+
+body.dark-mode a {
+  color: var(--gold-light);
+}
+
+body.dark-mode #theme-toggle {
+  color: var(--gold-light);
+}
