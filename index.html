@@ -14,6 +14,8 @@
     <!-- Header -->
     <header id="header" class="alt">
         <div class="logo"><a href="index.html">Honey Money Company <span>by Okacy</span></a></div>
+        <a href="#menu">Menu</a>
+        <a id="theme-toggle" href="javascript:void(0)" class="icon fa-moon-o" aria-label="Cambiar tema"></a>
     </header>
 
     <!-- Banner -->
@@ -72,6 +74,22 @@
             toggle && submenu && toggle.addEventListener('click', function (e) {
                 e.preventDefault();
                 submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+            });
+
+            // Dark mode toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.add('dark-mode');
+                themeToggle.classList.remove('fa-moon-o');
+                themeToggle.classList.add('fa-sun-o');
+            }
+            themeToggle.addEventListener('click', function () {
+                body.classList.toggle('dark-mode');
+                const dark = body.classList.contains('dark-mode');
+                themeToggle.classList.toggle('fa-sun-o', dark);
+                themeToggle.classList.toggle('fa-moon-o', !dark);
+                localStorage.setItem('theme', dark ? 'dark' : 'light');
             });
         });
     </script>
